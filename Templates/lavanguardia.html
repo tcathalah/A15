@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ca" data-theme="light">
+<head>
+  <link rel="icon" type="icon" href="/static/img/Logo-La-Vanguardia.png" sizes="96x96" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lector de Notícies</title>
+  <link rel="stylesheet" href="/static/css/index.css">
+  <script src="{{ url_for('static', filename='javascript/theme-toggle.js') }}" defer></script>
+  
+</head>
+<body>
+
+  <nav>
+    <h1 > 
+      <a href="https://www.lavanguardia.com/" target="_blank" rel="noopener noreferrer">
+      <img src="/static/img/lv.png" alt="La Vanguardia" style="height: 50px;">
+      </a>
+    </h1>
+    <button id="toggleTheme">🌗 Mode Clar/Fosc</button>
+  </nav>
+
+  <header>
+    <div class="controls">
+      <div>
+        <label for="selectorSeccio">Selecciona una secció:</label>
+        <select id="selectorSeccio" onchange="canviarSeccio(this.value)">
+          {% for seccio in feeds %}
+            <option value="{{ seccio }}" {% if seccio == selected %}selected{% endif %}>
+              {{ seccio.capitalize() }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mode-buttons">
+        <a href="{{ url_for('lavanguardia', mode='remote', seccio=selected) }}" class="btn btn-outline-success {% if mode == 'remote' %}active{% endif %}">🔌 Remote</a>
+        <a href="{{ url_for('lavanguardia', mode='local', seccio=selected) }}" class="btn btn-outline-primary {% if mode == 'local' %}active{% endif %}">💾 Local</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    {% for seccio, feed in feeds.items() %}
+      {% if seccio == selected %}
+        <section id="seccio-{{ seccio }}">
+          <h2>{{ feed.feed.title }}</h2>
+          <p>{{ feed.feed.description }}</p>
+
+          <div class="news-grid">
+            {% for item in feed.entries %}
+              <div class="card">
+                {% if item.media_content %}
+                  <img src="{{ item.media_content[0].url }}" alt="{{ item.title }}">
+                {% endif %}
+                <div class="card-body">
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+                <div class="card-footer">
+                  <div>{{ item.published }}</div>
+                  {% if item.author %}<div>Autor: {{ item.author }}</div>{% endif %}
+                  <a href="{{ item.link }}" class="btn-link" target="_blank">Llegir més →</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+    {% endfor %}
+  </main>
+
+  <footer class="bg-dark text-light text-center p-3">
+    © 2025 Lector de Notícies. Thomas C.H
+  </footer>
+
+  <script>
+    function canviarSeccio(seccio) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('seccio', seccio);
+      window.location.href = url.toString();
+    }
+
+    document.getElementById('toggleTheme').addEventListener('click', function () {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

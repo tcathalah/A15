@@ -1,0 +1,233 @@
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #111111;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+  }
+  
+
+  [data-theme='light'] {
+    --bg-body: #ffffff;
+    --text-body: #111111;
+    --bg-card: #f8f9fa;
+    --text-card: #111111;
+    --btn-border: #ccc;
+  }
+  
+
+  [data-theme='dark'] {
+    --bg-body: #121212;
+    --text-body: #e0e0e0;
+    --bg-card: #1f1f1f;
+    --text-card: #e0e0e0;
+    --btn-border: #555;
+  }
+  
+  [data-theme='dark'] .btn,
+  [data-theme='dark'] .form-select,
+  [data-theme='dark'] .btn-outline-primary,
+  [data-theme='dark'] .btn-outline-success {
+    background-color: #2a2a2a;
+    color: #ccc;
+    border-color: var(--btn-border);
+  }
+  
+  [data-theme='dark'] .btn-outline-primary:hover,
+  [data-theme='dark'] .btn-outline-success:hover {
+    background-color: #3a3a3a;
+    color: #fff;
+  }
+
+  body {
+    background-color: var(--bg-body);
+    color: var(--text-body);
+  }
+  
+  .card {
+    background-color: var(--bg-card);
+    color: var(--text-card);
+    border: none;
+    transition: box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+
+  .btn,
+  .form-select {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .btn.active {
+    font-weight: bold;
+    opacity: 1 !important;
+  }
+  
+  select.form-select {
+    max-width: 220px;
+  }
+  
+
+  .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+  
+
+  @media (max-width: 768px) {
+    .carousel-item img {
+      height: 250px;
+    }
+  
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+  
+    h1.hero-title {
+      font-size: 2rem;
+    }
+  }
+
+
+  :root {
+    --bg: #ffffff;
+    --text: #111111;
+    --card-bg: #f9f9f9;
+    --card-shadow: rgba(0, 0, 0, 0.05);
+    --primary: #0077cc;
+  }
+
+  [data-theme="dark"] {
+    --bg: #121212;
+    --text: #f0f0f0;
+    --card-bg: #1e1e1e;
+    --card-shadow: rgba(255, 255, 255, 0.05);
+    --primary: #66ccff;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  header, footer {
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: white;
+  }
+
+  nav button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  select, .mode-buttons a {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .mode-buttons a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+  }
+
+  .news-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--card-shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1rem;
+    flex: 1;
+  }
+
+  .card-footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .btn-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    color: var(--primary);
+  }
+
+  footer {
+    text-align: center;
+  }

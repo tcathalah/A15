@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ca" data-theme="light">
+<head>
+  <link rel="icon" type="icon" href="/static/img/tra.png" sizes="96x96" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lector de Notícies - Portada</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="/">📰 Lector de Notícies</a>
+    <div class="ms-auto">
+      <button id="toggleTheme" class="btn btn-outline-light">🌗 Mode Clar/Fosc</button>
+    </div>
+  </nav>
+
+  <header class="container my-4">
+    <h1 class="hero-title">Titulars del dia</h1>
+    <div id="sliderNoticies" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/img/IMG1.jpeg" class="d-block w-100" alt="Notícia destacada 1">
+        </div>
+        <div class="carousel-item">
+          <img src="/static/img/IMG2.jpeg" class="d-block w-100" alt="Notícia destacada 2">
+        </div>
+        <div class="carousel-item">
+          <img src="/static/img/IMG3.jpeg" class="d-block w-100" alt="Notícia destacada 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#sliderNoticies" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#sliderNoticies" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="mb-5">
+      <h2 class="section-title">Seccions destacades</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="/static/img/IMG1.jpeg" class="card-img-top" alt="Secció política">
+            <div class="card-body">
+              <h5 class="card-title">Política</h5>
+              <p class="card-text">Últimes notícies sobre el panorama polític a Catalunya i Espanya.</p>
+              <a href="/lavanguardia?seccio=politica" class="btn btn-primary">Llegir més</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="/static/img/IMG2.jpeg" class="card-img-top" alt="Secció economia">
+            <div class="card-body">
+              <h5 class="card-title">Economia</h5>
+              <p class="card-text">Tendències econòmiques, mercats i empreses al focus.</p>
+              <a href="/lavanguardia?seccio=economia" class="btn btn-primary">Llegir més</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="/static/img/IMG3.jpeg" class="card-img-top" alt="Secció internacional">
+            <div class="card-body">
+              <h5 class="card-title">Internacional</h5>
+              <p class="card-text">Cobertura global amb una mirada local.</p>
+              <a href="/lavanguardia?seccio=internacional" class="btn btn-primary">Llegir més</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-light text-center p-3">
+    © 2025 Lector de Notícies. Thomas C.H
+  </footer>
+
+  <script>
+    document.getElementById('toggleTheme').addEventListener('click', function () {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
